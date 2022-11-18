@@ -54,6 +54,8 @@ class ProjectController extends Controller
     {
         $project = Project::find($product_id);
 
-        return view('projects.project');
+        return view('projects.project', [
+            'project' => $project
+        ]);
     }
 }

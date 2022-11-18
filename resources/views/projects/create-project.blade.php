@@ -40,7 +40,7 @@
                             {{Session::get('error')}}
                         </div>
                     @endif
-                    <form class="forms-sample" action="{{route('create-project')}}" method="POST">
+                    <form class="forms-sample" action="{{route('admin-create-project')}}" method="POST">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">

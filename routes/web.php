@@ -24,6 +24,7 @@ Route::group(['middleware' => ['auth', 'role:project']], function () {
 
     Route::get('/p-manager/projects', 'App\Http\Controllers\project\ProjectController@index')->name('admin-projects');
     Route::get('/p-manager/create-project', 'App\Http\Controllers\project\ProjectController@create_project')->name('admin-project-create');
+    Route::get('/p-manager/project/{product_id}', 'App\Http\Controllers\project\ProjectController@project')->name('admin-project');
     Route::post('/p-manager-create-project', 'App\Http\Controllers\project\ProjectController@create')->name('admin-create-project');
 });
 
@@ -32,7 +33,7 @@ Route::group(['middleware' => ['auth', 'role:finance']], function () {
 
     Route::get('/Expenses', 'App\Http\Controllers\finance\FinanceController@index')->name('finance-expenses');
     Route::get('/create-expense', 'App\Http\Controllers\finance\FinanceController@create-expense')->name('finance-create-expense');
-    Route::get('/expense-create', 'App\Http\Controllers\finance\FinanceController@create')->name('create-project');
+    Route::post('/expense-create', 'App\Http\Controllers\finance\FinanceController@create')->name('create-expense');
 });
 
 require __DIR__.'/auth.php';
