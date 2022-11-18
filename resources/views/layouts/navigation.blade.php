@@ -24,20 +24,17 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{route('admin-projects')}}">
                     <span class="menu-title">Projects</span>
-                    <i class="mdi mdi-stethoscope menu-icon"></i>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="">
                     <span class="menu-title">Resources</span>
-                    <i class="mdi mdi-seat-flat menu-icon"></i>
                 </a>
             </li>
         @elseif (Auth::user()->hasRole('finance'))
             <li class="nav-item">
                 <a class="nav-link" href="{{route('finance-expenses')}}">
                     <span class="menu-title">Expenses</span>
-                    <i class="mdi mdi-pin menu-icon"></i>
                 </a>
             </li>
         @endif
