@@ -31,9 +31,9 @@ Route::group(['middleware' => ['auth', 'role:project']], function () {
 Route::group(['middleware' => ['auth', 'role:finance']], function () {
     Route::get('/finance/dashboard', 'App\Http\Controllers\finance\DashboardController@index')->name('finance-dashboard');
 
-    Route::get('/Expenses', 'App\Http\Controllers\finance\FinanceController@index')->name('finance-expenses');
-    Route::get('/create-expense', 'App\Http\Controllers\finance\FinanceController@create-expense')->name('finance-create-expense');
-    Route::post('/expense-create', 'App\Http\Controllers\finance\FinanceController@create')->name('create-expense');
+    Route::get('/resources', 'App\Http\Controllers\finance\FinanceController@index')->name('finance-expenses');
+    Route::get('/create-resource', 'App\Http\Controllers\finance\FinanceController@create_resource')->name('finance-create-expense');
+    Route::post('/resource-create', 'App\Http\Controllers\finance\FinanceController@create')->name('create-resource');
 });
 
 require __DIR__.'/auth.php';
