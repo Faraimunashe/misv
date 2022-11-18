@@ -24,7 +24,7 @@ Route::group(['middleware' => ['auth', 'role:project']], function () {
 
     Route::get('/p-manager/projects', 'App\Http\Controllers\project\ProjectController@index')->name('admin-projects');
     Route::get('/p-manager/create-project', 'App\Http\Controllers\project\ProjectController@create_project')->name('admin-project-create');
-    Route::get('/p-manager-create-project', 'App\Http\Controllers\project\ProjectController@create')->name('admin-create-project');
+    Route::post('/p-manager-create-project', 'App\Http\Controllers\project\ProjectController@create')->name('admin-create-project');
 });
 
 Route::group(['middleware' => ['auth', 'role:finance']], function () {

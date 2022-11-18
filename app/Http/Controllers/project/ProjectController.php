@@ -49,4 +49,11 @@ class ProjectController extends Controller
             return redirect()->back()->with('error', 'ERROR: '.$e->getMessage());
         }
     }
+
+    public function project($product_id)
+    {
+        $project = Project::find($product_id);
+
+        return view('projects.project');
+    }
 }
