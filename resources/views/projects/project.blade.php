@@ -17,7 +17,7 @@
                   </div>
                   <div class="col-md-6">
                     <address class="text-primary">
-                      <p class="font-weight-bold"> End Date </p>
+                      <p class="font-weight-bold"> End Date (critical path) </p>
                       <p class="mb-2"> {{$project->end_at}} </p>
                     </address>
                   </div>
@@ -35,13 +35,14 @@
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title">Allocated Resources</h4>
-                <p class="card-description">Add class <code>.list-arrow</code> to <code>&lt;ul&gt;</code></p>
                 <ul class="list-arrow">
-                  <li>Lorem ipsum dolor sit amet</li>
-                  <li>Consectetur adipiscing elit</li>
-                  <li>Integer molestie lorem at massa</li>
-                  <li>Facilisis in pretium nisl aliquet</li>
-                  <li>Nulla volutpat aliquam velit&gt;</li>
+                    <li>CAT Grader x1</li>
+                    <li>Tar 1 000 l</li>
+                    <li>Quary 1 000 kg</li>
+                    <li>Human Resources 1 000</li>
+                    @foreach (\App\Models\Resource::where('project_id', $project->id) as $item)
+
+                    @endforeach
                 </ul>
               </div>
             </div>

@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('resources', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('project_id')->nullable();
+            $table->string('name');
+            $table->integer('qty');
+            $table->decimal('price');
             $table->timestamps();
         });
     }
