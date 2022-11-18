@@ -4,6 +4,7 @@ Project
 -status
 -started_at
 -end_at
+-length
 
 Expense
 -project_id
