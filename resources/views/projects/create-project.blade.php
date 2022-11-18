@@ -40,7 +40,7 @@
                             {{Session::get('error')}}
                         </div>
                     @endif
-                    <form class="forms-sample" action="{{route('dr-create-appointment')}}" method="POST">
+                    <form class="forms-sample" action="{{route('create-project')}}" method="POST">
                         @csrf
                         <input type="hidden" name="consultation_id" value="{{$cons_id}}" required>
                         <div class="row">
