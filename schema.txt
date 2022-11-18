@@ -1,0 +1,11 @@
+Project
+-name
+-description
+-status
+-started_at
+-end_at
+
+Expense
+-project_id
+-name
+-amount
