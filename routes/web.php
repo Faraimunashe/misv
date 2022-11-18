@@ -23,7 +23,7 @@ Route::group(['middleware' => ['auth', 'role:project']], function () {
     Route::get('/p-manager/dashboard', 'App\Http\Controllers\project\DashboardController@index')->name('admin-dashboard');
 
     Route::get('/p-manager/projects', 'App\Http\Controllers\project\ProjectController@index')->name('admin-projects');
-    Route::get('/p-manager/create-project', 'App\Http\Controllers\project\ProjectController@create-project')->name('admin-project-create');
+    Route::get('/p-manager/create-project', 'App\Http\Controllers\project\ProjectController@create_project')->name('admin-project-create');
     Route::get('/p-manager-create-project', 'App\Http\Controllers\project\ProjectController@create')->name('admin-create-project');
 });
 

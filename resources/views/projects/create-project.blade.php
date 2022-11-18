@@ -42,7 +42,6 @@
                     @endif
                     <form class="forms-sample" action="{{route('create-project')}}" method="POST">
                         @csrf
-                        <input type="hidden" name="consultation_id" value="{{$cons_id}}" required>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
