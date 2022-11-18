@@ -30,8 +30,8 @@ class ProjectController extends Controller
             'description' => ['required', 'string'],
             //'status' => ['required', 'integer'],
             'distance' => ['required', 'numeric'],
-            'started_at' => ['required', 'date', 'after:yesterday'],
-            'end_at' => ['require', 'date', 'after:started_at']
+            'start_at' => ['required', 'date', 'after:yesterday'],
+            'end_at' => ['required', 'date', 'after:started_at']
         ]);
 
         try{
@@ -40,7 +40,7 @@ class ProjectController extends Controller
             $project->description = $request->description;
             $project->status = 2;
             $project->distance = $request->distance;
-            $project->started_at = $request->started_at;
+            $project->started_at = $request->start_at;
             $project->end_at = $request->end_at;
             $project->save();
 
