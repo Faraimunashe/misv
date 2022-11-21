@@ -58,4 +58,31 @@ class ProjectController extends Controller
             'project' => $project
         ]);
     }
+
+    public function update_status($project_id)
+    {
+        $project = Project::find($project_id);
+        return view('projects.update-project', [
+            'project' => $project
+        ]);
+    }
+
+    public function update(Request $request)
+    {
+        $request->validate([
+            'project_id' => ['required', 'integer'],
+            'status' => ['required', 'integer']
+        ]);
+
+        try{
+            $p = Project::find($request->project_id);
+            $p->status = $request->status;
+            $p->save();
+
+            return redirect()->back()->with('success', 'Successfully updated status');
+        }catch(Exception $e)
+        {
+            return redirect()->back()->with('error', 'ERROR: '.$e->getMessage());
+        }
+    }
 }

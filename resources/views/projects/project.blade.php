@@ -7,7 +7,11 @@
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title">{{$project->name}}</h4>
-                <p class="card-description"> <label class="badge badge-gradient-{{$status->badge}}">{{$status->label}}</label> </p>
+                <p class="card-description">
+                    <a href="{{route('admin-status-project', $project->id)}}">
+                        <label class="badge badge-gradient-{{$status->badge}}">{{$status->label}}</label>
+                    </a>
+                </p>
                 <div class="row">
                   <div class="col-md-6">
                     <address>

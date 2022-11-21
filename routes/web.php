@@ -26,6 +26,8 @@ Route::group(['middleware' => ['auth', 'role:project']], function () {
     Route::get('/p-manager/create-project', 'App\Http\Controllers\project\ProjectController@create_project')->name('admin-project-create');
     Route::get('/p-manager/project/{product_id}', 'App\Http\Controllers\project\ProjectController@project')->name('admin-project');
     Route::post('/p-manager-create-project', 'App\Http\Controllers\project\ProjectController@create')->name('admin-create-project');
+    Route::get('/p-manager/project-update/{product_id}', 'App\Http\Controllers\project\ProjectController@update_status')->name('admin-status-project');
+    Route::post('/p-manager-update-project', 'App\Http\Controllers\project\ProjectController@update')->name('admin-update-project');
 
     Route::get('/p-manager/employees', 'App\Http\Controllers\project\EmployeeController@index')->name('admin-employees');
     Route::get('/p-manager/add-employee', 'App\Http\Controllers\project\EmployeeController@add_employee')->name('admin-add-employee');
