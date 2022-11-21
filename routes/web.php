@@ -26,6 +26,13 @@ Route::group(['middleware' => ['auth', 'role:project']], function () {
     Route::get('/p-manager/create-project', 'App\Http\Controllers\project\ProjectController@create_project')->name('admin-project-create');
     Route::get('/p-manager/project/{product_id}', 'App\Http\Controllers\project\ProjectController@project')->name('admin-project');
     Route::post('/p-manager-create-project', 'App\Http\Controllers\project\ProjectController@create')->name('admin-create-project');
+
+    Route::get('/p-manager/employees', 'App\Http\Controllers\project\EmployeeController@index')->name('admin-employees');
+    Route::get('/p-manager/add-employee', 'App\Http\Controllers\project\EmployeeController@add_employee')->name('admin-add-employee');
+    Route::post('/p-manager/employee-add', 'App\Http\Controllers\project\EmployeeController@add_employee')->name('admin-employee-add');
+    Route::get('/p-manager/employee/{employee_id}', 'App\Http\Controllers\project\EmployeeController@employee')->name('admin-employee');
+
+    Route::any('comment/employee/{employee_id}', 'App\Http\Controllers\project\EmployeeController@comment')->name('admin-comment-employee');
 });
 
 Route::group(['middleware' => ['auth', 'role:finance']], function () {

@@ -27,6 +27,11 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{{route('admin-employees')}}">
+                    <span class="menu-title">Employees</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="">
                     <span class="menu-title">Resources</span>
                 </a>

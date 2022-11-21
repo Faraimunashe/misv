@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Project;
+
 function get_status($num){
     $status = new stdClass();
     if($num === 2){
@@ -14,4 +16,8 @@ function get_status($num){
     }
 
     return $status;
+}
+
+function get_project($project_id){
+    return Project::find($project_id);
 }
