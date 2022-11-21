@@ -25,9 +25,10 @@ class EmployeeController extends Controller
             return view('projects.employee', [
                 'employee' => $employee
             ]);
-        }elseif($request->method() === "POST")
+        }/*
+        elseif($request->method() === "POST")
         {
-            /*
+
             $request->validate([
                 'fullname' => ['required', 'string'],
                 'gender' => ['required', 'string'],
@@ -49,7 +50,41 @@ class EmployeeController extends Controller
             {
                 return redirect()->back()->with('error', 'ERROR: '.$e->getMessage());
             }
-            */
+
+        }
+        */
+    }
+
+    public function add_employee(Request $request)
+    {
+        if($request->method() === "GET")
+        {
+            return view('projects.create-employee');
+        }elseif($request->method() === "POST")
+        {
+
+            $request->validate([
+                'fullname' => ['required', 'string'],
+                'gender' => ['required', 'string'],
+                'dob' => ['required', 'date', 'before:2004-12-12'],
+                'salary' => ['required', 'numeric'],
+            ]);
+
+            try{
+                $emp = new Employees();
+                $emp->fullname = $request->fullname;
+                $emp->gender = $request->gender;
+                $emp->salary = $request->salary;
+                $emp->dob = $request->dob;
+                $emp->ecno = 'EC-'.rand(11111111,88888888);
+                $emp->save();
+
+                return redirect()->back()->with('success', 'successfully added an employee');
+            }catch(Exception $e)
+            {
+                return redirect()->back()->with('error', 'ERROR: '.$e->getMessage());
+            }
+
         }
     }
 
