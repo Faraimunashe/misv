@@ -57,18 +57,18 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="exampleInputName1">Start Date</label>
                                     <input type="date" name="start_at" class="form-control" id="exampleInputName1" placeholder="Subject">
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="exampleInputName1">End Date</label>
                                     <input type="date" name="end_at" class="form-control" id="exampleInputName1" placeholder="Location">
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="form-group">
                             <label for="exampleInputName1">Description</label>

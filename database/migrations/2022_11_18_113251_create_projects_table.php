@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('distance')->default(1);
             $table->integer('status')->default(2);
             $table->date('started_at');
-            $table->date('end_at');
+            $table->date('end_at')->nullable();
             $table->timestamps();
         });
     }
