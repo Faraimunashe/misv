@@ -31,7 +31,7 @@ class ProjectController extends Controller
             //'status' => ['required', 'integer'],
             'distance' => ['required', 'numeric'],
             'start_at' => ['required', 'date', 'after:yesterday'],
-            'end_at' => ['required', 'date', 'after:started_at']
+            //'end_at' => ['required', 'date', 'after:started_at']
         ]);
 
         try{
@@ -41,7 +41,7 @@ class ProjectController extends Controller
             $project->status = 2;
             $project->distance = $request->distance;
             $project->started_at = $request->start_at;
-            $project->end_at = $request->end_at;
+            //$project->end_at = $request->end_at;
             $project->save();
 
             return redirect()->back()->with('success', 'successfully added project');
