@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Project;
+use App\Models\Resource;
 
 function get_status($num){
     $status = new stdClass();
@@ -20,4 +21,8 @@ function get_status($num){
 
 function get_project($project_id){
     return Project::find($project_id);
+}
+
+function get_resource($resource_id){
+    return Resource::find($resource_id);
 }

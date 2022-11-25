@@ -20,6 +20,9 @@ Route::get('/', function () {
 Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->middleware(['auth'])->name('dashboard');
 
 Route::group(['middleware' => ['auth', 'role:project']], function () {
+    Route::get('/p-manager/expense/{project_id}', 'App\Http\Controllers\project\ResourceController@index')->name('admin-add-resource');
+    Route::post('/p-manager/add-resource', 'App\Http\Controllers\project\ResourceController@add')->name('admin-addresource');
+
     Route::get('/p-manager/dashboard', 'App\Http\Controllers\project\DashboardController@index')->name('admin-dashboard');
 
     Route::get('/p-manager/projects', 'App\Http\Controllers\project\ProjectController@index')->name('admin-projects');
@@ -40,9 +43,10 @@ Route::group(['middleware' => ['auth', 'role:project']], function () {
 Route::group(['middleware' => ['auth', 'role:finance']], function () {
     Route::get('/finance/dashboard', 'App\Http\Controllers\finance\DashboardController@index')->name('finance-dashboard');
 
-    Route::get('/resources', 'App\Http\Controllers\finance\FinanceController@index')->name('finance-expenses');
     Route::get('/create-resource', 'App\Http\Controllers\finance\FinanceController@create_resource')->name('finance-create-expense');
     Route::post('/resource-create', 'App\Http\Controllers\finance\FinanceController@create')->name('create-resource');
+
+    Route::get('/expenses', 'App\Http\Controllers\finance\ExpenseController@index')->name('finance-expenses');
 });
 
 require __DIR__.'/auth.php';

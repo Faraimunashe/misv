@@ -5,15 +5,15 @@
             <div class="card-body">
 
                 <div>
-                    <h4 class="card-title">Recent Resources</h4>
-                    <a href="{{route('finance-create-expense')}}" class="btn btn-primary">Add Reaource</a>
+                    <h4 class="card-title">Project Expenses</h4>
                 </div>
               <div class="table-responsive">
                 <table class="table">
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>Name</th>
+                      <th>Project</th>
+                      <th>Expense</th>
                       <th>Qty</th>
                       <th>Price</th>
                     </tr>
@@ -22,15 +22,15 @@
                     @php
                         $count = 0;
                     @endphp
-                    @foreach ($finances as $item)
+                    @foreach ($expenses as $item)
                         <tr>
                             <td>
                                 @php
                                     $count ++;
                                     echo $count;
-                                    $status = get_status($item->status)
                                 @endphp
                             </td>
+                            <td>{{$item->product}}</td>
                             <td>{{$item->name}}</td>
                             <td>
                                 {{$item->qty}}
@@ -40,7 +40,6 @@
                     @endforeach
                   </tbody>
                 </table>
-                {{$finances->links('pagination::bootstrap-4')}}
               </div>
             </div>
           </div>
