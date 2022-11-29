@@ -5,49 +5,47 @@
             <div class="card-body">
 
                 <div>
-                    <h4 class="card-title">Project Expenses</h4>
+                    <h4 class="card-title">Machinery & Equipment</h4>
+                    <a href="{{route('admin-new-equipment')}}" class="btn btn-primary">Add New</a>
                 </div>
               <div class="table-responsive">
                 <table class="table">
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>Project</th>
-                      <th>Expense</th>
-                      <th>Qty</th>
-                      <th>Price</th>
+                      <th>Name</th>
+                      <th>Model</th>
+                      <th>Value</th>
+                      <th>Lifespan</th>
+                      <th>Performance</th>
+                      <th>Maintenance</th>
                     </tr>
                   </thead>
                   <tbody>
                     @php
                         $count = 0;
-                        $total = 0;
                     @endphp
-                    @foreach ($expenses as $item)
+                    @foreach ($equipments as $item)
                         <tr>
                             <td>
                                 @php
                                     $count ++;
-                                    $total = $total + $item->price;
                                     echo $count;
                                 @endphp
                             </td>
-                            <td>{{$item->product}}</td>
-                            <td>{{$item->name}}</td>
+                            <td><a href="#"> {{$item->name}} </a></td>
                             <td>
-                                {{$item->qty}}
+                                {{$item->model}}
                             </td>
-                            <td> {{$item->price}} </td>
+                            <td> {{$item->value}} </td>
+                            <td> {{$item->lifespan}} </td>
+                            <td> {{$item->performance}} </td>
+                            <td> {{$item->maintenance}} </td>
                         </tr>
                     @endforeach
                   </tbody>
                 </table>
               </div>
-            </div>
-            <div class="card-footer">
-                <h3>
-                    <strong>Total: </strong> ${{(float)$total}}
-                </h3>
             </div>
           </div>
         </div>

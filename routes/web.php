@@ -25,6 +25,10 @@ Route::group(['middleware' => ['auth', 'role:project']], function () {
 
     Route::get('/p-manager/dashboard', 'App\Http\Controllers\project\DashboardController@index')->name('admin-dashboard');
 
+    Route::get('/p-manager/equipments', 'App\Http\Controllers\project\EquipmentController@index')->name('admin-equipments');
+    Route::post('/p-manager/add-equipment', 'App\Http\Controllers\project\EquipmentController@add')->name('admin-add-equipment');
+    Route::get('/p-manager/new-equipment', 'App\Http\Controllers\project\EquipmentController@new')->name('admin-new-equipment');
+
     Route::get('/p-manager/projects', 'App\Http\Controllers\project\ProjectController@index')->name('admin-projects');
     Route::get('/p-manager/create-project', 'App\Http\Controllers\project\ProjectController@create_project')->name('admin-project-create');
     Route::get('/p-manager/project/{product_id}', 'App\Http\Controllers\project\ProjectController@project')->name('admin-project');

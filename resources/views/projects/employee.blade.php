@@ -25,7 +25,7 @@
                     EC Number: <code>{{$employee->ecno}}</code>
                 </p>
                 <div style="float: right">
-                    <a href="{{route('admin-comment-employee', $employee->id)}}">Add Comment</a>
+                    <a href="{{route('admin-comment-employee', $employee->id)}}">Rate Performance</a>
                 </div>
               </div>
               <div class="card-body">

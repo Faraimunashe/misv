@@ -32,8 +32,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">
-                    <span class="menu-title">Resources</span>
+                <a class="nav-link" href="{{route('admin-equipments')}}">
+                    <span class="menu-title">Equipments</span>
                 </a>
             </li>
         @elseif (Auth::user()->hasRole('finance'))

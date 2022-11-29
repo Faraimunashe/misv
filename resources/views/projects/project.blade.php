@@ -41,7 +41,7 @@
                 <h4 class="card-title">Allocated Resources</h4>
                 <a class="btn btn-primary" href="{{route('admin-add-resource', $project->id)}}">Add Resource</a>
                 <ul class="list-arrow">
-                    @foreach (\App\Models\Allocate::all() as $item)
+                    @foreach (\App\Models\Allocate::where('project_id', $project->id)->get() as $item)
                         <li>{{get_resource($item->resource_id)->name}} x{{$item->qty}}</li>
                     @endforeach
                 </ul>

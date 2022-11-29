@@ -35,6 +35,15 @@ class ResourceController extends Controller
             $res->qty = $request->qty;
             $res->save();
 
+            $critical = critical_path($request->project_id);
+            if(is_null($critical)){
+                return redirect()->back()->with('success', 'Successfully added resource to project');
+            }
+
+            $project = Project::find($request->project_id);
+            $project->end_at = $critical;
+            $project->save();
+
             return redirect()->back()->with('success', 'Successfully added resource to project');
         }catch(Exception $e)
         {
